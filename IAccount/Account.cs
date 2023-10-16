@@ -36,21 +36,21 @@ public abstract class Account : IUserInterface
 
     public abstract UserActivity HandleActivity();
 
-    public void Withdraw(double amount)
+    public virtual void Withdraw(double amount)
     {
         this.Balance -= amount;
         this.TotalWithdrawls++;
     }
-    public void Deposit(double amount)
+    public virtual void Deposit(double amount)
     {
         this.Balance += amount;
         this.TotalDeposits++;
     }
-    public void CalculateInterest()
+    public virtual void CalculateInterest()
     {
         this.Balance += this.Balance * (this.Interest / 12);
     }
-    public string CloseAndReport()
+    public virtual string CloseAndReport()
     {
         this.Balance -= this.ServiceCharge;
         this.CalculateInterest();
@@ -61,6 +61,6 @@ public abstract class Account : IUserInterface
     }
     public override string ToString()
     {
-        return $"Initial Balance: ${this.StartBalance}\nBalance: ${this.Balance}\nDeposits: {this.TotalDeposits}\nWithdrawls: {this.TotalWithdrawls}\nInterest: {this.Interest}%\nService Charge: ${this.ServiceCharge}\n===============";
+        return $"===============\nInitial Balance: ${this.StartBalance}\nBalance: ${this.Balance}\nDeposits: {this.TotalDeposits}\nWithdrawls: {this.TotalWithdrawls}\nInterest: {this.Interest}%\nService Charge: ${this.ServiceCharge}";
     }
 }

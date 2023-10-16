@@ -15,17 +15,17 @@ public class Chequing : Account
         throw new NotImplementedException();
     }
 
-    public new void Withdraw(double Amount)
+    public override void Withdraw(double Amount)
     {
         this.ServiceCharge += this.Balance - Amount == 0 ? 15 : 0;
 
         if (this.Balance - Amount > 0)
         {
-            this.Withdraw(Amount);
+            base.Withdraw(Amount);
         }
     }
 
-    public new void CloseAndReport()
+    public override String CloseAndReport()
     {
         this.ServiceCharge += 5;
 
@@ -34,6 +34,6 @@ public class Chequing : Account
             this.ServiceCharge += 0.1;
         }
 
-        this.CloseAndReport();
+        return base.CloseAndReport();
     }
 }

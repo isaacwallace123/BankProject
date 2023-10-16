@@ -15,23 +15,23 @@ public class Savings : Account
         return this.Activity;
     }
 
-    public new void Withdraw(double Amount)
+    public override void Withdraw(double Amount)
     {
         if (HandleActivity() == UserActivity.Active)
         {
-            this.Withdraw(Amount);
+            base.Withdraw(Amount);
         }
     }
 
-    public new void Deposit(double Amount)
+    public override void Deposit(double Amount)
     {
         if (HandleActivity() == UserActivity.Inactive)
         {
-            this.Deposit(Amount);
+            base.Deposit(Amount);
         }
     }
 
-    public new void CloseAndReport()
+    public override String CloseAndReport()
     {
         if (this.TotalWithdrawls > 4)
         {
@@ -42,9 +42,9 @@ public class Savings : Account
                     this.ServiceCharge++;
                 }
             }
-
-            this.CloseAndReport();
         }
+
+        return base.CloseAndReport();
     }
 }
 

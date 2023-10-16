@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9F31DA4-0DF0-4E7E-9011-3C94AC7869C4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>BankProject2</RootNamespace>
-    <AssemblyName>BankProject2</AssemblyName>
+    <ProjectGuid>{36605CDB-3879-49A5-8AE1-191880A3D5F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlobalSavings</RootNamespace>
+    <AssemblyName>GlobalSavings</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,16 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chequing">
-      <HintPath>..\Chequing\bin\Debug\Chequing.dll</HintPath>
-    </Reference>
-    <Reference Include="GlobalSavings">
-      <HintPath>..\GlobalSavings\bin\Debug\GlobalSavings.dll</HintPath>
-    </Reference>
-    <Reference Include="IAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\IAccount\bin\Debug\IAccount.dll</HintPath>
-    </Reference>
     <Reference Include="Savings">
       <HintPath>..\Savings\bin\Debug\Savings.dll</HintPath>
     </Reference>
@@ -56,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="GlobalSavings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\IAccount\IAccount.csproj">
+      <Project>{A128A1F4-16EE-4CB2-9941-90B77586695B}</Project>
+      <Name>IAccount</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
